@@ -142,23 +142,7 @@ text-decoration: none;
 }
 
 .main-qrcode {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+   text-align: center;
     background: #ffffff;
 }
 
@@ -183,10 +167,11 @@ text-decoration: none;
 
 .main-msg {
     background: #ffffff;
-    padding: .2rem 0 0.1rem;
+    padding: .1rem 0 0.1rem;
 }
 
 .main-qrcode-box-msg {
+    margin-top:0.1rem;
     text-align: center;
     font-size: .4rem;
     color: #333;
