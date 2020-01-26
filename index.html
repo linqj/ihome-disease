@@ -7,30 +7,515 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="author" content="水滴保险">
     <meta name="referrer" content="always">
-    <link rel="stylesheet" href="index.css">
+    <style>
+        html,
+        body {
+            margin: 0;
+            border: 0;
+        }
 
+        a,
+        abbr,
+        acronym,
+        address,
+        applet,
+        article,
+        aside,
+        audio,
+        big,
+        blockquote,
+        body,
+        canvas,
+        caption,
+        center,
+        cite,
+        code,
+        dd,
+        del,
+        details,
+        dfn,
+        div,
+        dl,
+        dt,
+        em,
+        embed,
+        fieldset,
+        figcaption,
+        figure,
+        footer,
+        form,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        header,
+        hgroup,
+        html,
+        i,
+        iframe,
+        img,
+        ins,
+        kbd,
+        label,
+        legend,
+        li,
+        mark,
+        menu,
+        nav,
+        object,
+        ol,
+        output,
+        p,
+        pre,
+        q,
+        ruby,
+        s,
+        samp,
+        section,
+        small,
+        span,
+        strike,
+        sub,
+        summary,
+        sup,
+        table,
+        tbody,
+        td,
+        tfoot,
+        th,
+        thead,
+        time,
+        tr,
+        tt,
+        u,
+        ul,
+        var,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            text-decoration: none;
+        }
+
+        #app {
+            background: #ededed;
+        }
+
+        .app-img {
+            width: 100%;
+            height: auto;
+        }
+
+        .main-msg-time {
+            margin: .733333rem 0 0;
+            font-size: .32rem;
+            color: #848484;
+            text-align: center;
+        }
+
+        .main-msg-text {
+            box-sizing: border-box;
+            padding: .4rem;
+            width: 8.933333rem;
+            margin: .173333rem auto 0;
+            border-radius: .266667rem;
+            border: 1px solid #dedede;
+            background: #f8f8f8;
+            font-size: .533333rem;
+            font-weight: 700;
+            line-height: .746667rem;
+            color: #333;
+        }
+
+        .main-msg-list {
+            margin: .666667rem .533333rem;
+            min-height: 3.6rem;
+        }
+
+        .main-msg-list-item {
+            width: 100%;
+            margin: 0 0 .4rem;
+            color: #333;
+            font-size: .426667rem;
+            line-height: .6rem;
+        }
+
+        .main-list {
+            position: relative;
+        }
+
+        .main-list-title {
+            padding: .533333rem 0 .266667rem .533333rem;
+            font-size: .48rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .main-list-tag {
+            position: absolute;
+            right: .36rem;
+            bottom: .133333rem;
+            height: .4rem;
+            color: #b1b1b1;
+            font-size: .32rem;
+        }
+
+        .main-points {
+            position: relative;
+            background: #ffffff;
+            margin-top: 0.267rem;
+        }
+
+        .main-points-title {
+            padding: .533333rem 0 .266667rem .533333rem;
+            font-size: .48rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .main-points-list {
+            box-sizing: border-box;
+            padding: 0 .4rem 0 1rem;
+            overflow: hidden;
+        }
+
+        .main-points-list-item {
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 8rem;
+            padding: .32rem;
+            margin: 0 0 .4rem;
+            background: #f8f8f8;
+            border-radius: .2rem;
+        }
+
+        .main-points-list-item>img {
+            position: absolute;
+            z-index: 10;
+            width: .32rem;
+            left: -.56rem;
+            top: .266667rem;
+        }
+
+        .main-points-list-item-line {
+            position: absolute;
+            z-index: 5;
+            height: 1000vh;
+            left: -.413333rem;
+            top: .306667rem;
+            opacity: .2;
+            border: 0.02rem solid #0056fe;
+        }
+
+        .main-points-list-item-line__last {
+            position: absolute;
+            z-index: 7;
+            height: 1000vh;
+            left: -.413333rem;
+            top: .306667rem;
+            border: .053333rem solid #fff;
+        }
+
+        .main-qrcode {
+            text-align: center;
+            background: #ffffff;
+        }
+
+        .main-qrcode-box {
+            width: 4.466667rem;
+            height: 4.466667rem;
+        }
+
+        .main-qrcode-box>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .main-cover-text {
+            position: absolute;
+            top: 3.533333rem;
+            right: 2.666667rem;
+            line-height: .613333rem;
+            color: #fff;
+            font-size: .453333rem;
+        }
+
+        .main-msg {
+            background: #ffffff;
+            padding: .1rem 0 0.1rem;
+        }
+
+        .main-qrcode-box-msg {
+            margin-top: 0.1rem;
+            text-align: center;
+            font-size: .4rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .main-qrcode-box-text {
+            margin: .133333rem 0 0;
+            text-align: center;
+            font-size: .346667rem;
+            color: #848484;
+            padding-bottom: 1.5rem;
+        }
+
+        .main-msg-time {
+
+            font-size: .32rem;
+            color: #848484;
+            text-align: center;
+        }
+
+        .main-msg-text {
+            box-sizing: border-box;
+            padding: .4rem;
+            width: 8.933333rem;
+            margin: .173333rem auto 0;
+            border-radius: .266667rem;
+            border: 1px solid #dedede;
+            background: #f8f8f8;
+            font-size: .533333rem;
+            font-weight: 700;
+            line-height: .746667rem;
+            color: #333;
+        }
+
+        .main-msg-list {
+            margin: .666667rem .533333rem;
+            min-height: 3.6rem;
+        }
+
+        .main-msg-list-item {
+            width: 100%;
+            margin: 0 0 .4rem;
+            color: #333;
+            font-size: .426667rem;
+            line-height: .6rem;
+        }
+
+        .main-msg-list-item i {
+            font-weight: 700;
+        }
+
+        .main-points-list-item-title {
+            font-size: .426667rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .main-points-list-item-msg {
+            font-size: .4rem;
+            line-height: .56rem;
+            color: #848484;
+            margin: .16rem 0 0;
+        }
+
+        .main-list {
+            position: relative;
+            background: #ffffff;
+            margin-top: 0.267rem;
+        }
+
+        .main-list-title {
+            /* padding: .533333rem 0 .266667rem .533333rem; */
+            font-size: .48rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .main-list-img {
+            width: 100%;
+        }
+
+        .main-list-img>img {
+            width: 100%;
+        }
+
+        .list-menu {
+            position: relative;
+            padding: .12rem .16rem .16rem;
+            background: #fff;
+        }
+
+        .menu-title {
+            display: flex;
+            width: 100%;
+            height: 0.96rem;
+            overflow: hidden;
+            color: #333;
+            font-weight: 700;
+            font-size: .15rem;
+            background: #f7f7f7;
+            border-bottom: .005rem solid #ebebeb;
+        }
+
+        .menu-title1 {
+            flex: 2;
+            display: inline-block;
+            text-align: center;
+            background: #e3e7f3;
+            /* width: 2.7rem; */
+            line-height: 0.96rem;
+        }
+
+        .menu-title2 {
+            flex: 1;
+            display: inline-block;
+            background: #f3bab0;
+            line-height: 0.96rem;
+            text-align: center;
+        }
+
+        .menu-title3 {
+            flex: 1;
+            display: inline-block;
+            background: #b4c0d5;
+            line-height: 0.96rem;
+            text-align: center;
+        }
+
+        .menu-title4 {
+            flex: 1;
+            display: inline-block;
+            background: #6c9;
+            line-height: 0.96rem;
+            text-align: center;
+        }
+
+        .menu-text {
+            display: flex;
+            width: 100%;
+            height: 0.96rem;
+            line-height: 0.96rem;
+            overflow: hidden;
+            color: #333;
+            font-weight: 700;
+            font-size: .15rem;
+            background: #f7f7f7;
+            border-bottom: .005rem solid #ebebeb;
+        }
+
+        .menu-text1 {
+            flex: 2;
+            text-align: center;
+            /* color:#ffffff;background: #0056fe;border-radius: 0.48rem; */
+        }
+
+        .menu-text2 {
+            flex: 1;
+            text-align: center;
+        }
+
+        .menu-text3 {
+            flex: 1;
+            text-align: center;
+        }
+
+        .menu-text4 {
+            flex: 1;
+            text-align: center;
+        }
+
+        .main-list-title-sec {
+            padding: .533333rem 0 .266667rem .533333rem;
+            font-size: .38rem;
+            font-weight: 700;
+            color: #333;
+        }
+    </style>
 </head>
 
 <body ontouchstart="" style="font-size: 12px;">
     <div id="app">
         <!-- 官微使用图片1.png  ihome使用2.png -->
-        <img src="1.png" alt="" class='app-img'>
+        <img src="http://static.e-hqins.com/cms/material/wuhanbingdu-guanwei.png?d=1579759357000" alt=""
+            class='app-img'>
         <div data-v-2026f41b="" class="main-msg">
-            <div data-v-2026f41b="" class="main-msg-time">截至 2020-01-23 11:17 数据统计</div>
-            <div data-v-2026f41b="" class="main-msg-text">全国 确诊585例 疑似393例<br>治愈28例 死亡17例</div>
+            <div data-v-2026f41b="" class="main-msg-time">截至 2020-01-26 13:39 数据统计</div>
+            <div data-v-2026f41b="" class="main-msg-text">全国 确诊2012例 疑似2684例<br>治愈49例 死亡56例</div>
             <div data-v-2026f41b="" class="main-msg-list">
-                <div data-v-2026f41b="" class="main-msg-list-item"><i>传染源：</i>尚不明确，可能来自蛇或蝙蝠</div>
+                <div data-v-2026f41b="" class="main-msg-list-item"><i>传染源：</i>野生动物，可能为某种菊头蝠</div>
                 <div data-v-2026f41b="" class="main-msg-list-item"><i>病毒:</i> 新型冠状病毒 2019-nCoV</div>
                 <div data-v-2026f41b="" class="main-msg-list-item"><i>传播途径:</i> 未完全掌握，存在人传人</div>
                 <div data-v-2026f41b="" class="main-msg-list-item"><i>病毒是否变异:</i> 存在可能</div>
                 <div data-v-2026f41b="" class="main-msg-list-item"><i>疫情是否扩散:</i> 是</div>
             </div>
         </div>
+        <!-- <div class="main-list">
+            <div class="main-list-title">
+                疫情分布
+            </div>
+            <div class="list-menu">
+                <div class="menu-title">
+                    <span class="menu-title1">地区</span>
+                    <span class="menu-title2">确诊</span>
+                    <span class="menu-title3">死亡</span>
+                    <span class="menu-title4">治愈</span>
+                </div>
+                <div class="menu-text">
+                    <span class="menu-text1">地区</span>
+                    <span class="menu-text2">确诊</span>
+                    <span class="menu-text3">死亡</span>
+                    <span class="menu-text4">治愈</span>
+                </div>
+
+            </div>
+            <div class="main-list-img"><img
+                    src="http://static.e-hqins.com/cms/material/wuhanbignduduiyingyibingfenbu.jpg?d=1579759793000"
+                    alt=""></div>
+            <div class="main-list-tag">数据来源:各地卫健委</div>
+        </div> -->
         <div class="main-list">
             <div class="main-list-title">
                 疫情分布
             </div>
-            <div  class="main-list-img"><img  src="./disconect.jpg" alt=""></div>
+            <div class="main-list-img"><img src="http://static.e-hqins.com/cms/material/wuhanbingduditufenbu.jpg"
+                    alt=""></div>
+            <div class="main-list-title-sec">
+                国内疫情
+            </div>
+            <div class="list-menu">
+                <div class="menu-title">
+                    <span class="menu-title1">地区</span>
+                    <span class="menu-title2">确诊</span>
+                    <span class="menu-title3">死亡</span>
+                    <span class="menu-title4">治愈</span>
+                </div>
+                <div id="region">
+                </div>
+            </div>
+            <div class="main-list-title-sec">
+                国外疫情
+            </div>
+            <div class="list-menu">
+                <div class="menu-title">
+                    <span class="menu-title1">国家</span>
+                    <span class="menu-title2">确诊</span>
+                    <span class="menu-title3">死亡</span>
+                    <span class="menu-title4">治愈</span>
+                </div>
+                <div id="countries">
+
+                </div>
+            </div>
+
             <div class="main-list-tag">数据来源:各地卫健委</div>
         </div>
         <div class="main-points">
@@ -41,7 +526,7 @@
                 <div class="main-points-list-item"><img data-v-2026f41b=""
                         src="https://store.sdbao.com/sems/realtimes/images/point.png" alt="">
                     <div class="main-points-list-item-line"></div>
-                    <!----> <span class="main-points-list-item-title">口罩佩戴必须要</span> <span
+                    --> <span class="main-points-list-item-title">口罩佩戴必须要</span> <span
                         class="main-points-list-item-msg">外出走亲访友或去人群密集场所，建议正确佩戴医用外科口罩或N95型口罩，可以有效预防呼吸道感染</span>
                 </div>
                 <div class="main-points-list-item"><img data-v-2026f41b=""
@@ -64,10 +549,10 @@
             </div>
         </div>
         <div class="main-qrcode">
-              <!-- 官微使用图片3.png  ihome使用4.png -->
-          <img class="main-qrcode-box"
-                    src="./3.png" alt="">
-            <div  class="main-qrcode-box-msg">
+            <!-- 官微使用图片3.png  ihome使用4.png -->
+            <img class="main-qrcode-box"
+                src="http://static.e-hqins.com/cms/material/wuhanbingduduiying-guanwei.png?d=1579759483000" alt="">
+            <div class="main-qrcode-box-msg">
                 长按二维码 关注公众号
             </div>
             <div class="main-qrcode-box-text">
@@ -76,5 +561,84 @@
         </div>
     </div>
 </body>
+<!-- <script src="./jquery-3.4.1.min.js"></script> -->
+<script>
+    window.onload = function () {
+        var list = [
+            { name: '湖北', insure: '1052', dead: '52', health: '42' },
+            { name: '浙江', insure: '104', dead: '0', health: '1' },
+            { name: '广东', insure: '1052', dead: '52', health: '42' },
+            { name: '河南', insure: '1052', dead: '52', health: '42' },
+            { name: '重庆', insure: '1052', dead: '52', health: '42' },
+            { name: '湖南', insure: '1052', dead: '52', health: '42' },
+            { name: '安徽', insure: '1052', dead: '52', health: '42' },
+            { name: '北京', insure: '1052', dead: '52', health: '42' },
+            { name: '上海', insure: '1052', dead: '52', health: '42' },
+            { name: '山东', insure: '1052', dead: '52', health: '42' },
+            { name: '江西', insure: '1052', dead: '52', health: '42' },
+            { name: '广西', insure: '1052', dead: '52', health: '42' },
+            { name: '江苏', insure: '1052', dead: '52', health: '42' },
+            { name: '四川', insure: '1052', dead: '52', health: '42' },
+            { name: '海南', insure: '1052', dead: '52', health: '42' },
+            { name: '辽宁', insure: '1052', dead: '52', health: '42' },
+            { name: '福建', insure: '1052', dead: '52', health: '42' },
+            { name: '黑龙江', insure: '1052', dead: '52', health: '42' },
+            { name: '陕西', insure: '1052', dead: '52', health: '42' },
+            { name: '河北', insure: '1052', dead: '52', health: '42' },
+            { name: '云南', insure: '1052', dead: '52', health: '42' },
+            { name: '天津', insure: '1052', dead: '52', health: '42' },
+            { name: '山西', insure: '1052', dead: '52', health: '42' },
+            { name: '内蒙古', insure: '1052', dead: '52', health: '42' },
+            { name: '甘肃', insure: '1052', dead: '52', health: '42' },
+            { name: '贵州', insure: '1052', dead: '52', health: '42' },
+            { name: '香港', insure: '1052', dead: '52', health: '42' },
+
+        ]
+        var oceanList = [
+            { name: '泰国', insure: '1052', dead: '52', health: '42' },
+            { name: '新加坡', insure: '104', dead: '0', health: '1' },
+            { name: '澳大利亚', insure: '1052', dead: '52', health: '42' },
+            { name: '马来西亚', insure: '1052', dead: '52', health: '42' },
+            { name: '日本', insure: '1052', dead: '52', health: '42' },
+            { name: '法国', insure: '1052', dead: '52', health: '42' },
+            { name: '韩国', insure: '1052', dead: '52', health: '42' },
+            { name: '美国', insure: '1052', dead: '52', health: '42' },
+            { name: '越南', insure: '1052', dead: '52', health: '42' },
+            { name: '尼泊尔', insure: '1052', dead: '52', health: '42' },
+            { name: '加拿大', insure: '1052', dead: '52', health: '42' },
+            { name: '菲律宾', insure: '1052', dead: '52', health: '42' },
+            { name: '英国', insure: '1052', dead: '52', health: '42' },
+            { name: '德国', insure: '1052', dead: '52', health: '42' },
+            { name: '芬兰', insure: '1052', dead: '52', health: '42' },
+            { name: '意大利', insure: '1052', dead: '52', health: '42' }
+        ];
+
+        // menuText.innerHtml=''
+        let textHtml = '';
+        let oceanHtml = '';
+        for (var i = 0; i < list.length; i++) {
+            textHtml += `<div class="menu-text" >
+                    <span class="menu-text1">${list[i].name}</span>
+                    <span class="menu-text2">${list[i].insure}</span>
+                    <span class="menu-text3">${list[i].dead}</span>
+                    <span class="menu-text4">${list[i].health}</span>
+                </div>`
+        }
+        for (var i = 0; i < oceanList.length; i++) {
+            oceanHtml += `<div class="menu-text" >
+                    <span class="menu-text1">${oceanList[i].name}</span>
+                    <span class="menu-text2">${oceanList[i].insure}</span>
+                    <span class="menu-text3">${oceanList[i].dead}</span>
+                    <span class="menu-text4">${oceanList[i].health}</span>
+                </div>`
+        }
+        var menuText = document.getElementById("region");
+        var countriesText = document.getElementById("countries");
+        menuText.innerHTML = textHtml;
+        countriesText.innerHTML = oceanHtml;
+    }
+
+
+</script>
 
 </html>

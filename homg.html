@@ -1,0 +1,687 @@
+<html data-dpr="1" style="font-size: 40px;">
+
+<head>
+    <meta charset="utf-8">
+    <title>新型肺炎疫情实时动态</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="水滴保险">
+    <meta name="referrer" content="always">
+    <link rel="stylesheet" href="index.css">
+<style>
+html,
+body {
+    margin: 0;
+    border: 0;
+}
+a, abbr, acronym, address, applet, article, aside, audio, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+text-decoration: none;
+}
+#app {
+    background: #ededed;
+}
+
+.app-img {
+    width: 100%;
+    height: auto;
+}
+
+.main-msg-time {
+    margin: .733333rem 0 0;
+    font-size: .32rem;
+    color: #848484;
+    text-align: center;
+}
+
+.main-msg-text {
+    box-sizing: border-box;
+    padding: .4rem;
+    width: 8.933333rem;
+    margin: .173333rem auto 0;
+    border-radius: .266667rem;
+    border: 1px solid #dedede;
+    background: #f8f8f8;
+    font-size: .533333rem;
+    font-weight: 700;
+    line-height: .746667rem;
+    color: #333;
+}
+
+.main-msg-list {
+    margin: .666667rem .533333rem;
+    min-height: 3.6rem;
+}
+
+.main-msg-list-item {
+    width: 100%;
+    margin: 0 0 .4rem;
+    color: #333;
+    font-size: .426667rem;
+    line-height: .6rem;
+}
+
+.main-list {
+    position: relative;
+}
+
+.main-list-title {
+    padding: .533333rem 0 .266667rem .533333rem;
+    font-size: .48rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.main-list-tag {
+    position: absolute;
+    right: .36rem;
+    bottom: .133333rem;
+    height: .4rem;
+    color: #b1b1b1;
+    font-size: .32rem;
+}
+
+.main-points {
+    position: relative;
+    background: #ffffff;
+    margin-top: 0.267rem;
+}
+
+.main-points-title {
+    padding: .533333rem 0 .266667rem .533333rem;
+    font-size: .48rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.main-points-list {
+    box-sizing: border-box;
+    padding: 0 .4rem 0 1rem;
+    overflow: hidden;
+}
+
+.main-points-list-item {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 8rem;
+    padding: .32rem;
+    margin: 0 0 .4rem;
+    background: #f8f8f8;
+    border-radius: .2rem;
+}
+
+.main-points-list-item>img {
+    position: absolute;
+    z-index: 10;
+    width: .32rem;
+    left: -.56rem;
+    top: .266667rem;
+}
+
+.main-points-list-item-line {
+    position: absolute;
+    z-index: 5;
+    height: 1000vh;
+    left: -.413333rem;
+    top: .306667rem;
+    opacity: .2;
+    border: 0.02rem solid #0056fe;
+}
+
+.main-points-list-item-line__last {
+    position: absolute;
+    z-index: 7;
+    height: 1000vh;
+    left: -.413333rem;
+    top: .306667rem;
+    border: .053333rem solid #fff;
+}
+
+.main-qrcode {
+   text-align: center;
+    background: #ffffff;
+}
+
+.main-qrcode-box {
+    width: 4.466667rem;
+    height: 4.466667rem;
+}
+
+.main-qrcode-box>img {
+    width: 100%;
+    height: 100%;
+}
+
+.main-cover-text {
+    position: absolute;
+    top: 3.533333rem;
+    right: 2.666667rem;
+    line-height: .613333rem;
+    color: #fff;
+    font-size: .453333rem;
+}
+
+.main-msg {
+    background: #ffffff;
+    padding: .1rem 0 0.1rem;
+}
+
+.main-qrcode-box-msg {
+    margin-top:0.1rem;
+    text-align: center;
+    font-size: .4rem;
+    color: #333;
+    font-weight: 700;
+}
+
+.main-qrcode-box-text {
+    margin: .133333rem 0 0;
+    text-align: center;
+    font-size: .346667rem;
+    color: #848484;
+    padding-bottom: 1.5rem;
+}
+
+.main-msg-time {
+ 
+    font-size: .32rem;
+    color: #848484;
+    text-align: center;
+}
+
+.main-msg-text {
+    box-sizing: border-box;
+    padding: .4rem;
+    width: 8.933333rem;
+    margin: .173333rem auto 0;
+    border-radius: .266667rem;
+    border: 1px solid #dedede;
+    background: #f8f8f8;
+    font-size: .533333rem;
+    font-weight: 700;
+    line-height: .746667rem;
+    color: #333;
+}
+
+.main-msg-list {
+    margin: .666667rem .533333rem;
+    min-height: 3.6rem;
+}
+
+.main-msg-list-item {
+    width: 100%;
+    margin: 0 0 .4rem;
+    color: #333;
+    font-size: .426667rem;
+    line-height: .6rem;
+}
+.main-msg-list-item i {
+font-weight: 700;
+}
+.main-points-list-item-title {
+    font-size: .426667rem;
+    font-weight: 700;
+    color: #333;
+}
+.main-points-list-item-msg{
+    font-size: .4rem;
+    line-height: .56rem;
+    color: #848484;
+    margin: .16rem 0 0;
+}
+.main-list {
+    position: relative;
+    background:#ffffff;
+    margin-top:0.267rem;
+}
+.main-list-title{
+    /* padding: .533333rem 0 .266667rem .533333rem; */
+    font-size: .48rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.main-list-img {
+    width: 9.066667rem;
+    margin: 0 0 0 .266667rem;
+}
+.main-list-img>img{
+    width: 100%;
+}</style>
+</head>
+
+<body ontouchstart="" style="font-size: 12px;">
+    <div id="app">
+        <!-- 官微使用图片1.png  ihome使用2.png -->
+        <img src="http://static.e-hqins.com/cms/material/wuhanbingdu-guanwei.png?d=1579759357000" alt="" class='app-img'>
+        <div data-v-2026f41b="" class="main-msg">
+            <div data-v-2026f41b="" class="main-msg-time">截至 2020-01-26 09:02 数据统计</div>
+            <div data-v-2026f41b="" class="main-msg-text">全国 确诊1975例 疑似2684例<br>治愈92例 死亡56例</div>
+            <div data-v-2026f41b="" class="main-msg-list">
+                <div data-v-2026f41b="" class="main-msg-list-item"><i>传染源：</i>野生动物，可能为某种菊头蝠</div>
+                <div data-v-2026f41b="" class="main-msg-list-item"><i>病毒:</i> 新型冠状病毒 2019-nCoV</div>
+                <div data-v-2026f41b="" class="main-msg-list-item"><i>传播途径:</i> 未完全掌握，存在人传人</div>
+                <div data-v-2026f41b="" class="main-msg-list-item"><i>病毒是否变异:</i> 存在可能</div>
+                <div data-v-2026f41b="" class="main-msg-list-item"><i>疫情是否扩散:</i> 是</div>
+            </div>
+        </div>
+        <div class="main-list">
+            <div class="main-list-title">
+                疫情分布
+            </div>
+            <div  class="main-list-img"><img  src="http://static.e-hqins.com/cms/material/wuhanbignduduiyingyibingfenbu.jpg?d=1579759793000" alt=""></div>
+            <div class="main-list-tag">数据来源:各地卫健委</div>
+        </div>
+        <div class="main-points">
+            <div class="main-points-title">
+                预防要点
+            </div>
+            <div class="main-points-list">
+                <div class="main-points-list-item"><img data-v-2026f41b=""
+                        src="https://store.sdbao.com/sems/realtimes/images/point.png" alt="">
+                    <div class="main-points-list-item-line"></div>
+                    <!----> <span class="main-points-list-item-title">口罩佩戴必须要</span> <span
+                        class="main-points-list-item-msg">外出走亲访友或去人群密集场所，建议正确佩戴医用外科口罩或N95型口罩，可以有效预防呼吸道感染</span>
+                </div>
+                <div class="main-points-list-item"><img data-v-2026f41b=""
+                        src="https://store.sdbao.com/sems/realtimes/images/point.png" alt="">
+                    <!---->
+                    <!----> <span class="main-points-list-item-title">个人卫生得做好</span> <span
+                        class="main-points-list-item-msg">保持好个人卫生，餐前便后勤洗手，避免脏手接触口、眼</span></div>
+                <div class="main-points-list-item"><img data-v-2026f41b=""
+                        src="https://store.sdbao.com/sems/realtimes/images/point.png" alt="">
+                    <!---->
+                    <!----> <span class="main-points-list-item-title">避免聚会少接触</span> <span
+                        class="main-points-list-item-msg">人与人接触时，保持1米及以上的距离，尽量避免各类聚会引起交叉传染</span></div>
+                <div class="main-points-list-item"><img data-v-2026f41b=""
+                        src="https://store.sdbao.com/sems/realtimes/images/point.png" alt="">
+                    <!---->
+                    <div class="main-points-list-item-line__last"></div> <span
+                        class="main-points-list-item-title">通风换气勤打扫</span> <span
+                        class="main-points-list-item-msg">无论是工作场所还是家中居住，保持室内通风换气和良好卫生状况，也可帮助预防疾病</span>
+                </div>
+            </div>
+        </div>
+        <div class="main-qrcode">
+              <!-- 官微使用图片3.png  ihome使用4.png -->
+          <img class="main-qrcode-box"
+                    src="http://static.e-hqins.com/cms/material/wuhanbingduduiying-guanwei.png?d=1579759483000" alt="">
+            <div  class="main-qrcode-box-msg">
+                长按二维码 关注公众号
+            </div>
+            <div class="main-qrcode-box-text">
+                获取实时疫情信息
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./jquery-3.4.1.min.js"></script>
+<script>
+    var list=[
+        {parent:{name:'湖北',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'武汉',insure:'618',dead:'45',health:'40'},
+        {name:'黄冈',insure:'',dead:'',health:''},
+        {name:'孝感',insure:'',dead:'',health:''},
+        {name:'咸宁',insure:'',dead:'',health:''},
+        {name:'荆门',insure:'',dead:'',health:''},
+        {name:'随州',insure:'',dead:'',health:''},
+        {name:'荆州',insure:'',dead:'',health:''},
+        {name:'黄石',insure:'',dead:'',health:''},
+        {name:'宜昌',insure:'',dead:'',health:''},
+        {name:'十堰',insure:'',dead:'',health:''},
+        {name:'恩施州',insure:'',dead:'',health:''},
+        {name:'仙桃',insure:'',dead:'',health:''},
+        {name:'天门',insure:'',dead:'',health:''},
+        {name:'襄阳',insure:'',dead:'',health:''},
+        {name:'鄂州',insure:'',dead:'',health:''},
+
+        ]},
+        {parent:{name:'浙江',insure:'104',dead:'0',health:'1'},
+        childList:[
+        {name:'杭州',insure:'',dead:'',health:''},
+        {name:'台州',insure:'',dead:'',health:''},
+        {name:'温州',insure:'',dead:'',health:''},
+        {name:'宁波',insure:'',dead:'',health:''},
+        {name:'嘉兴',insure:'',dead:'',health:''},
+        {name:'绍兴',insure:'',dead:'',health:''},
+        {name:'金华',insure:'',dead:'',health:''},
+        {name:'衢州',insure:'',dead:'',health:''},
+        {name:'丽水',insure:'',dead:'',health:''},
+        {name:'舟山',insure:'',dead:'',health:''},
+        {name:'湖州',insure:'',dead:'',health:''},
+        ]},
+        {parent:{name:'广东',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'深圳',insure:'',dead:'',health:''},
+        {name:'广州',insure:'',dead:'',health:''},
+        {name:'佛山',insure:'',dead:'',health:''},
+        {name:'珠海',insure:'',dead:'',health:''},
+        {name:'惠州',insure:'',dead:'',health:''},
+        {name:'阳江',insure:'',dead:'',health:''},
+        {name:'湛江',insure:'',dead:'',health:''},
+        {name:'肇庆',insure:'',dead:'',health:''},
+        {name:'韶关',insure:'',dead:'',health:''},
+        {name:'清远',insure:'',dead:'',health:''},
+        {name:'揭阳',insure:'',dead:'',health:''},
+        {name:'中山',insure:'',dead:'',health:''},
+        {name:'东莞',insure:'',dead:'',health:''},
+        {name:'汕头',insure:'',dead:'',health:''},
+        ]},
+        {parent:{name:'河南',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'信阳',insure:'',dead:'',health:''},
+        {name:'郑州',insure:'',dead:'',health:''},
+        {name:'南阳',insure:'',dead:'',health:''},
+        {name:'驻马店',insure:'',dead:'',health:''},
+        {name:'周口',insure:'',dead:'',health:''},
+        {name:'新乡',insure:'',dead:'',health:''},
+        {name:'安阳市',insure:'',dead:'',health:''},
+        {name:'漯河市',insure:'',dead:'',health:''},
+        {name:'三门峡',insure:'',dead:'',health:''},
+        {name:'平顶山',insure:'',dead:'',health:''},
+        {name:'洛阳',insure:'',dead:'',health:''},
+        ]},
+        {parent:{name:'重庆',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'万州区',insure:'',dead:'',health:''},
+        {name:'长寿区',insure:'',dead:'',health:''},
+        {name:'忠县',insure:'',dead:'',health:''},
+        {name:'大渡口区',insure:'',dead:'',health:''},
+        {name:'渝北区',insure:'',dead:'',health:''},
+        {name:'开州区',insure:'',dead:'',health:''},
+        {name:'云阳县',insure:'',dead:'',health:''},
+        {name:'九龙坡区',insure:'',dead:'',health:''},
+        {name:'永州区',insure:'',dead:'',health:''},
+        {name:'奉节县',insure:'',dead:'',health:''},
+        {name:'巫山县',insure:'',dead:'',health:''},
+        {name:'巫溪县',insure:'',dead:'',health:''},
+        {name:'两江新区',insure:'',dead:'',health:''},
+        {name:'石柱县',insure:'',dead:'',health:''},
+        {name:'江北区',insure:'',dead:'',health:''},
+        {name:'垫江县',insure:'',dead:'',health:''},
+        {name:'合川区',insure:'',dead:'',health:''},
+        {name:'璧山区',insure:'',dead:'',health:''},
+        {name:'铜梁区',insure:'',dead:'',health:''},
+        {name:'大足区',insure:'',dead:'',health:''},
+        {name:'涪陵区',insure:'',dead:'',health:''},
+        {name:'秀山县',insure:'',dead:'',health:''},
+        {name:'梁平区',insure:'',dead:'',health:''},
+        {name:'城口县',insure:'',dead:'',health:''},
+        {name:'丰都县',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'湖南',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'长沙',insure:'',dead:'',health:''},
+        {name:'怀化',insure:'',dead:'',health:''},
+        {name:'常德',insure:'',dead:'',health:''},
+        {name:'岳阳',insure:'',dead:'',health:''},
+        {name:'娄底',insure:'',dead:'',health:''},
+        {name:'永州',insure:'',dead:'',health:''},
+        {name:'益阳',insure:'',dead:'',health:''},
+        {name:'株洲',insure:'',dead:'',health:''},
+        {name:'湘潭',insure:'',dead:'',health:''},
+        {name:'郴州',insure:'',dead:'',health:''},
+        {name:'衡阳',insure:'',dead:'',health:''},
+        {name:'湘西自治州',insure:'',dead:'',health:''},
+        {name:'邵阳',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'安徽',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'合肥',insure:'',dead:'',health:''},
+        {name:'阜阳',insure:'',dead:'',health:''},
+        {name:'马鞍山',insure:'',dead:'',health:''},
+        {name:'毫州',insure:'',dead:'',health:''},
+        {name:'安庆',insure:'',dead:'',health:''},
+        {name:'六安',insure:'',dead:'',health:''},
+        {name:'铜陵',insure:'',dead:'',health:''},
+        {name:'芜湖',insure:'',dead:'',health:''},
+        {name:'滁州',insure:'',dead:'',health:''},
+        {name:'宿州',insure:'',dead:'',health:''},
+        {name:'池州',insure:'',dead:'',health:''},
+        {name:'蚌埠',insure:'',dead:'',health:''},
+        {name:'宣城',insure:'',dead:'',health:''},
+        {name:'淮北',insure:'',dead:'',health:''},
+        {name:'淮南',insure:'',dead:'',health:''},
+        {name:'黄山',insure:'',dead:'',health:''},
+        ]},
+        {parent:{name:'北京',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'外来来京人员',insure:'',dead:'',health:''},
+        {name:'海淀',insure:'',dead:'',health:''},
+        {name:'朝阳',insure:'',dead:'',health:''},
+        {name:'西城',insure:'',dead:'',health:''},
+        {name:'昌平',insure:'',dead:'',health:''},
+        {name:'通州',insure:'',dead:'',health:''},
+        {name:'丰台',insure:'',dead:'',health:''},
+        {name:'大兴',insure:'',dead:'',health:''},
+        {name:'石景山',insure:'',dead:'',health:''},
+        {name:'顺义',insure:'',dead:'',health:''},
+        {name:'东城',insure:'',dead:'',health:''},
+        ]},
+        {parent:{name:'上海',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'上海市',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'山东',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'临沂',insure:'',dead:'',health:''},
+        {name:'青岛',insure:'',dead:'',health:''},
+        {name:'威海',insure:'',dead:'',health:''},
+        {name:'日照',insure:'',dead:'',health:''},
+        {name:'济宁',insure:'',dead:'',health:''},
+        {name:'济南',insure:'',dead:'',health:''},
+        {name:'德州',insure:'',dead:'',health:''},
+        {name:'潍坊',insure:'',dead:'',health:''},
+        {name:'烟台',insure:'',dead:'',health:''},
+        {name:'聊城',insure:'',dead:'',health:''},
+        {name:'滨州',insure:'',dead:'',health:''},
+        {name:'菏泽',insure:'',dead:'',health:''},
+        {name:'淄博',insure:'',dead:'',health:''}
+
+        ]},
+        {parent:{name:'江西',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'赣州',insure:'',dead:'',health:''},
+        {name:'抚州',insure:'',dead:'',health:''},
+        {name:'上饶',insure:'',dead:'',health:''},
+        {name:'宜春',insure:'',dead:'',health:''},
+        {name:'南昌',insure:'',dead:'',health:''},
+        {name:'萍乡',insure:'',dead:'',health:''},
+        {name:'九江',insure:'',dead:'',health:''},
+        {name:'吉安',insure:'',dead:'',health:''},
+        {name:'新余',insure:'',dead:'',health:''},
+        {name:'景德镇',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'广西',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'桂林',insure:'',dead:'',health:''},
+        {name:'北海',insure:'',dead:'',health:''},
+        {name:'柳州',insure:'',dead:'',health:''},
+        {name:'河池',insure:'',dead:'',health:''},
+        {name:'梧州',insure:'',dead:'',health:''},
+        {name:'百色',insure:'',dead:'',health:''},
+        {name:'防城港',insure:'',dead:'',health:''},
+        {name:'南宁',insure:'',dead:'',health:''},
+        {name:'玉林',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'江苏',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'苏州',insure:'',dead:'',health:''},
+        {name:'南京',insure:'',dead:'',health:''},
+        {name:'常州',insure:'',dead:'',health:''},
+        {name:'连云港',insure:'',dead:'',health:''},
+        {name:'无锡',insure:'',dead:'',health:''},
+        {name:'南通',insure:'',dead:'',health:''},
+        {name:'扬州',insure:'',dead:'',health:''},
+        {name:'盐城',insure:'',dead:'',health:''},
+        {name:'宿迁',insure:'',dead:'',health:''},
+        {name:'淮安',insure:'',dead:'',health:''},
+        {name:'泰州',insure:'',dead:'',health:''},
+        ]},
+        {parent:{name:'四川',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'成都',insure:'',dead:'',health:''},
+        {name:'绵阳',insure:'',dead:'',health:''},
+        {name:'广安',insure:'',dead:'',health:''},
+        {name:'遂宁',insure:'',dead:'',health:''},
+        {name:'德阳',insure:'',dead:'',health:''},
+        {name:'雅安',insure:'',dead:'',health:''},
+        {name:'达州',insure:'',dead:'',health:''},
+        {name:'自贡',insure:'',dead:'',health:''},
+        {name:'泸州',insure:'',dead:'',health:''},
+        {name:'内江',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'海南',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'三亚',insure:'',dead:'',health:''},
+        {name:'万宁',insure:'',dead:'',health:''},
+        {name:'海口',insure:'',dead:'',health:''},
+        {name:'儋州',insure:'',dead:'',health:''},
+        {name:'临高县',insure:'',dead:'',health:''},
+        {name:'陵水县',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'辽宁',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'沈阳',insure:'',dead:'',health:''},
+        {name:'大连',insure:'',dead:'',health:''},
+        {name:'朝阳',insure:'',dead:'',health:''},
+        {name:'铁岭',insure:'',dead:'',health:''},
+        {name:'葫芦岛',insure:'',dead:'',health:''},
+        {name:'本溪',insure:'',dead:'',health:''},
+        {name:'营口',insure:'',dead:'',health:''},
+        {name:'丹东',insure:'',dead:'',health:''},
+        {name:'盘锦',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'福建',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'福州',insure:'',dead:'',health:''},
+        {name:'厦门',insure:'',dead:'',health:''},
+        {name:'泉州',insure:'',dead:'',health:''},
+        {name:'漳州',insure:'',dead:'',health:''},
+        {name:'宁德',insure:'',dead:'',health:''},
+        {name:'三明',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'黑龙江',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'哈尔滨',insure:'',dead:'',health:''},
+        {name:'大庆',insure:'',dead:'',health:''},
+        {name:'绥化',insure:'',dead:'',health:''},
+        {name:'牡丹江',insure:'',dead:'',health:''},
+        {name:'齐齐哈尔',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'陕西',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'西安',insure:'',dead:'',health:''},
+        {name:'咸阳',insure:'',dead:'',health:''},
+        {name:'安康',insure:'',dead:'',health:''},
+        {name:'铜州',insure:'',dead:'',health:''},
+        {name:'延安',insure:'',dead:'',health:''},
+        {name:'商洛',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'河北',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'石家庄',insure:'',dead:'',health:''},
+        {name:'保定',insure:'',dead:'',health:''},
+        {name:'沧州',insure:'',dead:'',health:''},
+        {name:'邯郸市',insure:'',dead:'',health:''},
+        {name:'承德',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'云南',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'昆明',insure:'',dead:'',health:''},
+        {name:'丽江',insure:'',dead:'',health:''},
+        {name:'西双版纳',insure:'',dead:'',health:''},
+        {name:'曲靖',insure:'',dead:'',health:''},
+        {name:'玉溪',insure:'',dead:'',health:''},
+        {name:'红河',insure:'',dead:'',health:''},
+        {name:'大理',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'天津',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'天津市',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'山西',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'晋中',insure:'',dead:'',health:''},
+        {name:'太原',insure:'',dead:'',health:''},
+        {name:'运城',insure:'',dead:'',health:''},
+        {name:'阳泉',insure:'',dead:'',health:''},
+        {name:'大同',insure:'',dead:'',health:''},
+        {name:'长治',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'内蒙古',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'锡林郭勒盟',insure:'',dead:'',health:''},
+        {name:'鄂尔多斯',insure:'',dead:'',health:''},
+        {name:'满洲里',insure:'',dead:'',health:''},
+        {name:'赤峰',insure:'',dead:'',health:''},
+        {name:'呼伦贝尔牙克石市',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'甘肃',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'兰州',insure:'',dead:'',health:''},
+        {name:'白银市',insure:'',dead:'',health:''},
+        {name:'临夏',insure:'',dead:'',health:''},
+        {name:'定西',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'贵州',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'铜仁',insure:'',dead:'',health:''},
+        {name:'贵阳',insure:'',dead:'',health:''},
+        {name:'黔南州',insure:'',dead:'',health:''},
+        {name:'黔西南州',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'香港',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'香港',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'宁夏',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'银川',insure:'',dead:'',health:''},
+        {name:'中卫',insure:'',dead:'',health:''},
+        {name:'固原',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'吉林',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'吉林',insure:'',dead:'',health:''},
+        {name:'长春',insure:'',dead:'',health:''},
+        {name:'松原',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'新疆',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'乌鲁木齐',insure:'',dead:'',health:''},
+        {name:'伊犁州',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'台湾',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'台湾',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'澳门',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'澳门',insure:'',dead:'',health:''}
+        ]},
+        {parent:{name:'青海',insure:'1052',dead:'52',health:'42'},
+        childList:[
+        {name:'西宁',insure:'',dead:'',health:''}
+        ]},
+
+]
+</script>
+
+</html>
